@@ -10,8 +10,6 @@ from config import OWNER_ID
 from devgagan import app
 
 
-
-
 async def aexec(code, client, message):
     exec(
         "async def __aexec(client, message): "
@@ -40,7 +38,7 @@ async def edit_or_reply(msg, **kwargs):
 )
 async def executor(client, message):
     if len(message.command) < 2:
-        return await edit_or_reply(message, text="<b>ᴡʜᴀᴛ ʏᴏᴜ ᴡᴀɴɴᴀ ᴇxᴇᴄᴜᴛᴇ ʙᴀʙʏ ?</b>")
+        return await edit_or_reply(message, text="<b>What do you want to execute?</b>")
     try:
         cmd = message.text.split(" ", maxsplit=1)[1]
     except IndexError:
@@ -67,7 +65,7 @@ async def executor(client, message):
     elif stdout:
         evaluation += stdout
     else:
-        evaluation += "sᴜᴄᴄᴇss"
+        evaluation += "Success"
     final_output = f"<b>⥤ ʀᴇsᴜʟᴛ :</b>\n<pre language='python'>{evaluation}</pre>"
     if len(final_output) > 4096:
         filename = "output.txt"
@@ -86,7 +84,7 @@ async def executor(client, message):
         )
         await message.reply_document(
             document=filename,
-            caption=f"<b>⥤ ᴇᴠᴀʟ :</b>\n<code>{cmd[0:980]}</code>\n\n<b>⥤ ʀᴇsᴜʟᴛ :</b>\nᴀᴛᴛᴀᴄʜᴇᴅ ᴅᴏᴄᴜᴍᴇɴᴛ",
+            caption=f"<b>⥤ EVAL :</b>\n<code>{cmd[0:980]}</code>\n\n<b>⥤ RESULT :</b>\nATTACHED DOCUMENT",
             quote=False,
             reply_markup=keyboard,
         )
@@ -125,7 +123,7 @@ async def forceclose_command(_, CallbackQuery):
     if CallbackQuery.from_user.id != int(user_id):
         try:
             return await CallbackQuery.answer(
-                "ɪᴛ'ʟʟ ʙᴇ ʙᴇᴛᴛᴇʀ ɪғ ʏᴏᴜ sᴛᴀʏ ɪɴ ʏᴏᴜʀ ʟɪᴍɪᴛs ʙᴀʙʏ.", show_alert=True
+                "It's better to stay within your limits.", show_alert=True
             )
         except:
             return
@@ -134,8 +132,6 @@ async def forceclose_command(_, CallbackQuery):
         await CallbackQuery.answer()
     except:
         return
-
-
 
 
 @app.on_edited_message(
@@ -152,7 +148,7 @@ async def forceclose_command(_, CallbackQuery):
 )
 async def shellrunner(_, message):
     if len(message.command) < 2:
-        return await edit_or_reply(message, text="<b>ᴇxᴀᴍᴩʟᴇ :</b>\n/sh git pull")
+        return await edit_or_reply(message, text="<b>EXAMPLE :</b>\n/sh git pull")
     text = message.text.split(None, 1)[1]
     if "\n" in text:
         code = text.split("\n")
@@ -181,7 +177,6 @@ async def shellrunner(_, message):
                 stderr=subprocess.PIPE,
             )
         except Exception as err:
-            print(err)
             exc_type, exc_obj, exc_tb = sys.exc_info()
             errors = traceback.format_exception(
                 etype=exc_type,
@@ -190,7 +185,6 @@ async def shellrunner(_, message):
             )
             return await edit_or_reply(
                 message, text=f"<b>ERROR :</b>\n<pre>{''.join(errors)}</pre>"
-            )
         output = process.stdout.read()[:-1].decode("utf-8")
     if str(output) == "\n":
         output = None
@@ -209,6 +203,3 @@ async def shellrunner(_, message):
     else:
         await edit_or_reply(message, text="<b>OUTPUT :</b>\n<code>None</code>")
     await message.stop_propagation()
-
-
-  

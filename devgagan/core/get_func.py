@@ -76,7 +76,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
         else:
             chat = msg_link.split("/")[-2]
         if chat in saved_channel_ids:
-            await app.edit_message_text(message.chat.id, edit_id, "Sorry! dude 😎 This channel is protected 🔐 by **__Team SPY__**")
+            await app.edit_message_text(message.chat.id, edit_id, "Sorry! dude 😎 This channel is protected 🔐 All Set ✅")
             return
             
         file = ""
@@ -140,11 +140,11 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                 await edit.edit("**__❌ File size is greater than 2 GB, purchase premium to proceed or use /token to get 3 hour access for free__")
                 return
 
-            edit = await app.edit_message_text(sender, edit_id, "Trying to Download...")
+            edit = await app.edit_message_text(sender, edit_id, "Trying to Download ⬇️⬇️⬇️...")
             file = await userbot.download_media(
                 msg,
                 progress=progress_bar,
-                progress_args=("╭─────────────────────╮\n│      **__Downloading__...**\n├─────────────────────",edit,time.time()))
+                progress_args=("╭─**⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️**\n├",edit,time.time()))
             
             custom_rename_tag = get_user_rename_preference(chatx)
             last_dot_index = str(file).rfind('.')
@@ -183,20 +183,20 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
             thumb_path = await screenshot(file, duration, chatx)
             file_extension = file.split('.')[-1]
                 
-            await edit.edit('**__Checking file...__**')
+            await edit.edit('**🔍 Checking file 📁...__**')
             if os.path.getsize(file) >= 2 * 1024 * 1024 * 1024:
                 if pro is None:
                     await edit.edit('**__ ❌ 4GB trigger not found__**')
                     os.remove(file)
                     return
-                await edit.edit('**__ ✅ 4GB trigger connected...__**\n\n')
+                await edit.edit('**✅ 4GB trigger connected...**\n\n')
                 duration = metadata['duration']
                 width = metadata['width']
                 height = metadata['height']
                 thumb_path = await screenshot(file, duration, chatx)
                 # prog = None
                 try:
-                    X = -1002496913494
+                    X = -1002066281333
                     if file_extension in VIDEO_EXTENSIONS:
                         dm = await pro.send_video(
                             LOG_GROUP, 
@@ -266,7 +266,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                         return
                     elif upload_method == "Telethon":
                         await edit.delete()
-                        progress_message = await gf.send_message(sender, "**__Uploading ...**__")
+                        progress_message = await gf.send_message(sender, "**⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️**")
                         uploaded = await fast_upload(
                                 gf, file, 
                                 reply=progress_message,                 
@@ -318,7 +318,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                 replacements = load_replacement_words(sender)
                 for word, replace_word in replacements.items():
                     final_caption = final_caption.replace(word, replace_word)
-                caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}"
+                caption = f"{final_caption}\n\n**{custom_caption}**" if custom_caption else f"{final_caption}"
 
                 target_chat_id = user_chat_ids.get(chatx, chatx)
                 
@@ -337,7 +337,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                             duration=duration,
                             progress=progress_bar,
                             progress_args=(
-                                "╭─────────────────────╮\n│      **__Pyro Uploader__**\n├─────────────────────",
+                                "╭─**__Pyro Uploader__**\n├─────────────────────",
                                 edit,
                                 time.time()
                             )
@@ -346,7 +346,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                         
                     elif upload_method == "Telethon":
                         await edit.delete()
-                        progress_message = await gf.send_message(sender, "__**Uploading ...**__")
+                        progress_message = await gf.send_message(sender, "⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️**")
                         uploaded = await fast_upload(
                                 gf, file, 
                                 reply=progress_message,                 
@@ -447,7 +447,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                             thumb=thumb_path,
                             progress=progress_bar,
                             progress_args=(
-                                "╭─────────────────────╮\n│      **__Pyro Uploader__**\n├─────────────────────",
+                                "╭─**__Pyro Uploader__**\n├─────────────────────",
                                 edit,
                                 time.time()
                             )
@@ -456,7 +456,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                             
                         elif upload_method == "Telethon":
                             await edit.delete()
-                            progress_message = await gf.send_message(sender, "**__Starting Upload__**")
+                            progress_message = await gf.send_message(sender, "**⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️**")
                             uploaded = await fast_upload(
                                 gf, 
                                 file, 
@@ -506,7 +506,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                             thumb=thumb_path,
                             progress=progress_bar,
                             progress_args=(
-                                "╭─────────────────────╮\n│      **__Pyro Uploader__**\n├─────────────────────",
+                                "╭─**__Pyro Uploader__**\n├─────────────────────",
                                 edit,
                                 time.time()
                             )
@@ -588,13 +588,13 @@ async def copy_message_with_chat_id(client, sender, chat_id, message_id):
         
         delete_words = load_delete_words(sender)
         for word in delete_words:
-            final_caption = final_caption.replace(word, '  ')
+            final_caption = final_caption.replace(word, '')
         
         replacements = load_replacement_words(sender)
         for word, replace_word in replacements.items():
             final_caption = final_caption.replace(word, replace_word)
         
-        caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}"
+        caption = f"{final_caption}\n\n**{custom_caption}**" if custom_caption else f"{final_caption}"
         
         if msg.media:
             if msg.media == MessageMediaType.VIDEO:
@@ -709,7 +709,7 @@ async def set_rename_command(user_id, custom_rename_tag):
 # Function to get the user's custom renaming preference
 def get_user_rename_preference(user_id):
     # Retrieve the user's custom renaming tag if set, or default to 'Team SPY'
-    return user_rename_preferences.get(str(user_id), 'Team SPY')
+    return user_rename_preferences.get(str(user_id), '')
 
 # Function to set custom caption preference
 async def set_caption_command(user_id, custom_caption):
@@ -737,7 +737,7 @@ async def settings_command(event):
         [Button.inline("Session Login", b'addsession'), Button.inline("Logout", b'logout')],
         [Button.inline("Set Thumbnail", b'setthumb'), Button.inline("Remove Thumbnail", b'remthumb')],
         [Button.inline("Upload Method", b'uploadmethod')],
-        [Button.url("Report Errors", "https://t.me/team_spy_pro")]
+        [Button.url("Report Errors", "https://t.me/Doldotby")]
     ]
     
     await gf.send_file(
@@ -802,7 +802,7 @@ async def callback_query_handler(event):
             [Button.inline(f"Pyrogram v2{pyrogram_check}", b'pyrogram')],
             [Button.inline(f"SpyLib v1 ⚡{telethon_check}", b'telethon')]
         ]
-        await event.edit("Choose your preferred upload method:\n\n__**Note:** **SpyLib ⚡**, built on Telethon(base), by Team SPY still in beta.__", buttons=buttons)
+        await event.edit("Choose your preferred upload method:\n\n__**Note:** **SpyLib ⚡**, built on Telethon(base) still in beta.__", buttons=buttons)
 
     elif event.data == b'pyrogram':
         save_user_upload_method(user_id, "Pyrogram")
@@ -985,10 +985,15 @@ def progress_callback(done, total, user_id):
     # Calculate the percentage of progress
     percent = (done / total) * 100
     
-    # Format the progress bar
+    # Format the dynamic progress bar
     completed_blocks = int(percent // 10)
-    remaining_blocks = 10 - completed_blocks
-    progress_bar = "♦" * completed_blocks + "◇" * remaining_blocks
+    fractional_block = int((percent % 10) // 1)  # Determines if a fractional block is needed
+    remaining_blocks = 10 - completed_blocks - (1 if fractional_block > 0 else 0)
+    
+    progress_bar = "✅" * completed_blocks
+    if fractional_block > 0:
+        progress_bar += "🟨"
+    progress_bar += "🟥" * remaining_blocks
     
     # Convert done and total to MB for easier reading
     done_mb = done / (1024 * 1024)  # Convert bytes to MB
@@ -1015,16 +1020,14 @@ def progress_callback(done, total, user_id):
     
     # Format the final output as needed
     final = (
-        f"╭──────────────────╮\n"
-        f"│     **__SpyLib ⚡ Uploader__**       \n"
+        f"╭─**SpyLib-⚡-Uploader**\n"
         f"├──────────\n"
         f"│ {progress_bar}\n\n"
-        f"│ **__Progress:__** {percent:.2f}%\n"
-        f"│ **__Done:__** {done_mb:.2f} MB / {total_mb:.2f} MB\n"
-        f"│ **__Speed:__** {speed_mbps:.2f} Mbps\n"
-        f"│ **__ETA:__** {remaining_time_min:.2f} min\n"
-        f"╰──────────────────╯\n\n"
-        f"**__Powered by Team SPY__**"
+        f"│ **Progress:** {percent:.2f}%\n"
+        f"│ **Done:** {done_mb:.2f} MB / {total_mb:.2f} MB\n"
+        f"│ **Speed:** {speed_mbps:.2f} Mbps\n"
+        f"│ **ETA:** {remaining_time_min:.2f} min\n"
+        f"╰─**All Set ✅**\n"
     )
     
     # Update tracking variables for the user
@@ -1033,7 +1036,6 @@ def progress_callback(done, total, user_id):
     
     return final
 
-
 async def add_pdf_watermark(input_pdf, output_pdf_path, watermark_text):
     """Asynchronous wrapper for the synchronous PDF watermarking function."""
     loop = asyncio.get_event_loop()
@@ -1041,3 +1043,4 @@ async def add_pdf_watermark(input_pdf, output_pdf_path, watermark_text):
         None, add_pdf_watermark_sync, input_pdf, output_pdf_path, watermark_text
     )
     return result
+

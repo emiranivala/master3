@@ -53,28 +53,28 @@ async def speedtest(event):
     path = (result['share'])
     currentTime = get_readable_time(time() - botStartTime)
     string_speed = f'''
-╭─《 🚀 SPEEDTEST INFO 》
+╭─ 🚀 SPEEDTEST INFO 🚀
 ├ <b>Upload:</b> <code>{speed_convert(result['upload'], False)}</code>
 ├ <b>Download:</b>  <code>{speed_convert(result['download'], False)}</code>
 ├ <b>Ping:</b> <code>{result['ping']} ms</code>
 ├ <b>Time:</b> <code>{result['timestamp']}</code>
 ├ <b>Data Sent:</b> <code>{get_readable_file_size(int(result['bytes_sent']))}</code>
 ╰ <b>Data Received:</b> <code>{get_readable_file_size(int(result['bytes_received']))}</code>
-╭─《 🌐 SPEEDTEST SERVER 》
+╭─ 🌐 SPEEDTEST SERVER 🌐
 ├ <b>Name:</b> <code>{result['server']['name']}</code>
 ├ <b>Country:</b> <code>{result['server']['country']}, {result['server']['cc']}</code>
 ├ <b>Sponsor:</b> <code>{result['server']['sponsor']}</code>
 ├ <b>Latency:</b> <code>{result['server']['latency']}</code>
 ├ <b>Latitude:</b> <code>{result['server']['lat']}</code>
 ╰ <b>Longitude:</b> <code>{result['server']['lon']}</code>
-╭─《 👤 CLIENT DETAILS 》
+╭─ 👤 CLIENT DETAILS 👤
 ├ <b>IP Address:</b> <code>{result['client']['ip']}</code>
 ├ <b>Latitude:</b> <code>{result['client']['lat']}</code>
 ├ <b>Longitude:</b> <code>{result['client']['lon']}</code>
 ├ <b>Country:</b> <code>{result['client']['country']}</code>
 ├ <b>ISP:</b> <code>{result['client']['isp']}</code>
 ├ <b>ISP Rating:</b> <code>{result['client']['isprating']}</code>
-╰ <b>Powered by Team SPY</b> 
+╰ <b>All Set ✅</b> 
 '''
     try:
         await event.reply(string_speed,file=path,parse_mode='html')

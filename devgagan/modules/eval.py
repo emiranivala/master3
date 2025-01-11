@@ -185,6 +185,7 @@ async def shellrunner(_, message):
             )
             return await edit_or_reply(
                 message, text=f"<b>ERROR :</b>\n<pre>{''.join(errors)}</pre>"
+            )
         output = process.stdout.read()[:-1].decode("utf-8")
     if str(output) == "\n":
         output = None

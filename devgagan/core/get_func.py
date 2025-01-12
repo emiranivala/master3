@@ -337,7 +337,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                             duration=duration,
                             progress=progress_bar,
                             progress_args=(
-                                "╭─**__Pyro Uploader__**\n├─────────────────────",
+                                "╭─**__Uploading__**\n├─────────────────────",
                                 edit,
                                 time.time()
                             )
@@ -447,7 +447,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                             thumb=thumb_path,
                             progress=progress_bar,
                             progress_args=(
-                                "╭─**__Pyro Uploader__**\n├─────────────────────",
+                                "╭─**__Uploadingr__**\n├─────────────────────",
                                 edit,
                                 time.time()
                             )
@@ -506,7 +506,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                             thumb=thumb_path,
                             progress=progress_bar,
                             progress_args=(
-                                "╭─**__Pyro Uploader__**\n├─────────────────────",
+                                "╭─**__Uploading__**\n├─────────────────────",
                                 edit,
                                 time.time()
                             )

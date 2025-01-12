@@ -96,6 +96,6 @@ async def give_premium_cmd_handler(client, message):
                 text=f"👋 Hey {user.mention},\nThank you for purchasing premium.\nEnjoy! ✨🎉\n\n⏰ Premium Access: <code>{time}</code>\n⏳ Joining Date: {current_time}\n\n⌛ Expiry Date: {expiry_str_in_ist}", disable_web_page_preview=True              
             )                    
         else:
-            await message.reply_text("Invalid time format. Please use 'X minutes/hours/days/months/years'")
+            await message.reply_text("Invalid time format. Please use '1 day for days', '1 hour for hours', or '1 min for minutes', or '1 month for months' or '1 year for year'")
     else:
-        await message.reply_text("Usage : /add user_id time (e.g., 'X minutes/hours/days/months/years')")
+        await message.reply_text("Usage : /add user_id time (e.g., '1 day for days', '1 hour for hours', or '1 min for minutes', or '1 month for months' or '1 year for year')")
